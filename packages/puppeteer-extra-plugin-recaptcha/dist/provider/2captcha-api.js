@@ -121,7 +121,6 @@ exports.decodeReCaptcha = function (captchaMethod, captcha, pageUrl, extraData, 
     if (captchaMethod === 'hcaptcha') {
         postData.sitekey = captcha;
     }
-    console.log("Using key: " + apiKey + " and proxy: " + postData.proxy);
     postData = querystring.stringify(postData);
     var request = http.request(httpRequestOptions, function (response) {
         var body = '';
