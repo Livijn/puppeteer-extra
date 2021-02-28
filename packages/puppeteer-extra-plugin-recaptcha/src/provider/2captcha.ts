@@ -43,17 +43,19 @@ async function decodeRecaptchaAsync(
 
 export async function getSolutions(
   captchas: types.CaptchaInfo[] = [],
-  token?: string
+  token?: string,
+  proxy: string = ''
 ): Promise<types.GetSolutionsResult> {
   const solutions = await Promise.all(
-    captchas.map((c) => getSolution(c, token || ''))
+    captchas.map((c) => getSolution(c, token || '', proxy))
   )
   return { solutions, error: solutions.find((s) => !!s.error) }
 }
 
 async function getSolution(
   captcha: types.CaptchaInfo,
-  token: string
+  token: string,
+  proxy: string
 ): Promise<types.CaptchaSolution> {
   const solution: types.CaptchaSolution = {
     _vendor: captcha._vendor,
@@ -66,7 +68,9 @@ async function getSolution(
     solution.id = captcha.id
     solution.requestAt = new Date()
     debug('Requesting solution..', solution)
-    const extraData = {}
+    const extraData = {
+      proxy,
+    }
     if (captcha.s) {
       extraData['data-s'] = captcha.s // google site specific property
     }

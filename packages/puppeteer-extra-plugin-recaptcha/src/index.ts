@@ -145,7 +145,7 @@ export class PuppeteerExtraPluginRecaptcha extends PuppeteerExtraPlugin {
       }
       fn = builtinProvider.fn
     }
-    const response = await fn.call(this, captchas, provider.token)
+    const response = await fn.call(this, captchas, provider.token, provider.proxy)
     response.error =
       response.error ||
       response.solutions.find((s: types.CaptchaSolution) => !!s.error)

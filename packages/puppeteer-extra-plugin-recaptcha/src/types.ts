@@ -33,6 +33,7 @@ export type RecaptchaPluginPageAdditions = {
 export interface SolutionProvider {
   id?: string
   token?: string
+  proxy?: string,
   fn?: (captchas: CaptchaInfo[], token?: string) => Promise<GetSolutionsResult>
 }
 
