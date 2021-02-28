@@ -1,7 +1,10 @@
 {
   "private": true,
   "description": "Modular framework to teach Puppeteer new tricks.",
-  "repository": "berstend/puppeteer-extra",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/berstend/puppeteer-extra.git"
+  },
   "author": "berstend",
   "license": "MIT",
   "main": "packages/puppeteer-extra/index.js",
@@ -41,6 +44,10 @@
   "resolutions": {
     "**/fsevents": "^2.1.2"
   },
-  "dependencies": {},
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "name": "@livijn/puppeteer-extra",
+  "bugs": {
+    "url": "https://github.com/berstend/puppeteer-extra/issues"
+  },
+  "homepage": "https://github.com/berstend/puppeteer-extra#readme"
 }
